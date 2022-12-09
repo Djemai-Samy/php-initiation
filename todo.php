@@ -1,4 +1,3 @@
-
 <?php
 //Se connecter a la DB
 include_once './fonctions/db.php';
@@ -24,17 +23,28 @@ $todos = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <h1>ToDo liste</h1>
     <form action="/controllers/addtodo.php" method="GET">
       <input name="todo" placeholder="Entrez une tache"/>
+      <p><?= isset($GLOBALS['_GET']["error"]) ? "Input ne peut pas etre vide" : "" ?></p>
+
+      
       <button>Valider</button>
     </form>
     <div>
       <?php
         foreach($todos as $key => $val){
-          echo '<p>'.$val['nom'].'</p>';
-
+          echo '<p>'.htmlspecialchars($val['nom']) .'</p>';
+          echo '<form action="./controllers/removetodo.php">
+                  <input name="id" value="'.$val['id'].'" hidden />
+                  <button>Supprimer</button>
+                </form>';
         }
       ?>
     </div>
 
   </body>
 </html>
+
+//Supprimer une tache
+//Modifier isDone
+//Importance
+
 

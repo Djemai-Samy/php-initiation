@@ -1,6 +1,6 @@
 
 <?php
-  var_dump($GLOBALS['_GET'])
+  var_dump($GLOBALS['_GET']);
 ?>
 
 <form>
