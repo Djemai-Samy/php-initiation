@@ -1,0 +1,47 @@
+img{
+  width: 15px;
+  transition: all 0.1s ease-in-out;
+}
+
+img:hover{
+  transform: scale(1.2);
+}
+
+button{
+  border: none;
+  background-color: transparent;
+  padding: 0 20px;
+  cursor: pointer;
+}
+
+.btn{
+  background-color: royalblue;
+  color: whitesmoke;
+  padding: 10px 25px;
+  border-radius: 10px;
+}
+
+.tache{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 300px;
+
+  
+}
+.tache > p {
+  min-width: 90%;
+}
+.remove_icon{
+  min-width: 10%;
+}
+
+.date{
+  border-bottom: 1px solid royalblue;
+  width: 100%;
+  max-width: 300px;
+  font-size: 12px;
+  text-align: right;
+  color: gray;
+}

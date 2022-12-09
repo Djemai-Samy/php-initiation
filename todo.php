@@ -15,6 +15,7 @@ $todos = mysqli_fetch_all($result, MYSQLI_ASSOC);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ToDo liste</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
   <body>
     <?php
@@ -26,16 +27,24 @@ $todos = mysqli_fetch_all($result, MYSQLI_ASSOC);
       <p><?= isset($GLOBALS['_GET']["error"]) ? "Input ne peut pas etre vide" : "" ?></p>
 
       
-      <button>Valider</button>
+      <button class="btn">Valider</button>
     </form>
     <div>
       <?php
+        sort($todos);
         foreach($todos as $key => $val){
+          echo '<div class="tache">';
           echo '<p>'.htmlspecialchars($val['nom']) .'</p>';
           echo '<form action="./controllers/removetodo.php">
                   <input name="id" value="'.$val['id'].'" hidden />
-                  <button>Supprimer</button>
+                  <button class="romve_icon">
+                    <img src="./images/romve_icon.svg" />
+                  </button>
                 </form>';
+          echo '</div>';
+          
+          $date = date_create($val['date']);
+          echo '<p class="date">'.date_format($date, "d/m/y à H:i") .'</p>';
         }
       ?>
     </div>
@@ -43,7 +52,7 @@ $todos = mysqli_fetch_all($result, MYSQLI_ASSOC);
   </body>
 </html>
 
-//Supprimer une tache
+
 //Modifier isDone
 //Importance
 
