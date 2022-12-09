@@ -34,7 +34,7 @@
       $prenom = 'Samy';
       
       //2. utiliser la concaténation pour écrire: <h2>Bonjour, Djemai Samy, comment allez-vous?</h2>
-      $phrase = '<h2>Bonjour, '.$nom.' '.$prenom.', comment allez vous?</h2>';
+      $phrase = '<h2>Bonjour, ' . $nom.' '.$prenom.', comment allez vous?</h2>';
 
       echo $phrase;
     ?>
@@ -42,7 +42,7 @@
   <?php
     $guillemetSimpleOp = '<p>Bonjour, ' . (1 + 1) . ' ' . $prenom . '</p>';
     
-    $guillemetSimple = '<p>Bonjour, ' . $nom . ' ' . $prenom . '</p>';
+    $guillemetSimple = '<p>Bonjour,' . $nom . ' ' . $prenom . '</p>';
     $doubleGuillemets = "<p>Bonjour, $nom $prenom</p>";
   
   

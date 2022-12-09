@@ -1,6 +1,14 @@
 
 <?php
-// var_dump($GLOBALS)
+//Se connecter a la DB
+include_once './fonctions/db.php';
+$connect = connectToDB();
+
+$requesteSQL = 'SELECT * FROM taches';
+
+$result = mysqli_query($connect, $requesteSQL);
+
+$todos = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -15,12 +23,18 @@
     ?>
     <h1>ToDo liste</h1>
     <form action="/controllers/addtodo.php" method="GET">
-      <input type="text" name="todo" placeholder="Entrez une tache"/>
+      <input name="todo" placeholder="Entrez une tache"/>
       <button>Valider</button>
-      <?php
-        
-      ?>
     </form>
+    <div>
+      <?php
+        foreach($todos as $key => $val){
+          echo '<p>'.$val['nom'].'</p>';
+
+        }
+      ?>
+    </div>
+
   </body>
 </html>
 

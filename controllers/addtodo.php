@@ -1,15 +1,24 @@
 <?php
-$leTache = $GLOBALS['_GET']['todo'];
+include_once "../fonctions/db.php";
+$laTache = $GLOBALS['_GET']['todo'];
 
-//1 Connecter la BD
-$dbHost = "localhost";
-$utilisateur = "root";
-$dbPassword = "";
-$dbName = "todos";
+if($laTache !== ""){
+  $connect = connectToDB();
 
-$connect = mysqli_connect($dbHost, $utilisateur, $dbPassword, $dbName);
-var_dump($connect);
+  //2 Créer une requete SQL: INSERT
+  
+  //Créer une requete sql qui ajoute la tache la table todos:
+  $requeteSQl = 'INSERT INTO taches (nom) VALUES ("'.$laTache.'")';
+  
+  //3 Envoyer la requete )
+  $result = mysqli_query($connect, $requeteSQl);
+  
+  //Rediriger l'utilisateur vers: todo.php
+  header("Location: /todo.php");
 
-//2 Créer une requete SQL: INSERT
+}else{
+  
+  header("Location: /todo.php?error=EmptyInput");
+}
 
-//3 Envoyer la requete 
+?>
