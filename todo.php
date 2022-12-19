@@ -48,12 +48,6 @@ $todos = mysqli_fetch_all($result, MYSQLI_ASSOC);
         }
       ?>
     </div>
-
   </body>
 </html>
-
-
-//Modifier isDone
-//Importance
-
 
