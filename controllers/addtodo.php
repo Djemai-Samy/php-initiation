@@ -1,6 +1,8 @@
 <?php
+
 include_once "../fonctions/db.php";
-$laTache = $GLOBALS['_GET']['todo'];
+$laTache = $_GET['todo'];
+// $laTache = $GLOBALS['_GET']['todo'];
 
 if($laTache !== ""){
   $connect = connectToDB();

@@ -8,7 +8,9 @@ $requesteSQL = 'SELECT * FROM taches';
 $result = mysqli_query($connect, $requesteSQL);
 
 $todos = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -22,13 +24,13 @@ $todos = mysqli_fetch_all($result, MYSQLI_ASSOC);
       include "./composants/navbar.php";
     ?>
     <h1>ToDo liste</h1>
+    
     <form action="/controllers/addtodo.php" method="GET">
       <input name="todo" placeholder="Entrez une tache"/>
       <p><?= isset($GLOBALS['_GET']["error"]) ? "Input ne peut pas etre vide" : "" ?></p>
-
-      
       <button class="btn">Valider</button>
     </form>
+    
     <div>
       <?php
         sort($todos);
